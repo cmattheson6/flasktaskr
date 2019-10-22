@@ -1,11 +1,10 @@
 import os
 import unittest
+from project import app, db
+from project._config import basedir
+from project.models import Task, User
 
-from views import app, db
-from _config import basedir
-from models import User, Task
-from test_template import TestTemplate
-import datetime
+from tests.test_template import TestTemplate
 
 TEST_DB = 'test.db'
 

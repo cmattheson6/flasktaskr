@@ -1,4 +1,4 @@
-from views import db
+from archive.views import db
 from _config import DATABASE_PATH
 
 import sqlite3
