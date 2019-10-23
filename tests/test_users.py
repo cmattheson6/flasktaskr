@@ -16,8 +16,8 @@ class TestUsers(TestTemplate):
         # Test presence of login form on page
         self.assertEqual(response.status_code, 200,
                          msg='The login webpage did not properly load.')
-        self.assertIn(b'Please sign in to access your task list', response.data,
-                      msg='The sign in form is not present on the page.')
+        self.assertIn(b'Please login to access your task list', response.data,
+                      msg='The login form is not present on the page.')
 
         # Ensure registered users can log in
         self.register_user(name='cmattheson', email='cmattheson@test.com', password='testing', confirm='testing')
@@ -91,6 +91,12 @@ class TestUsers(TestTemplate):
         response = self.logout()
         self.assertIn(b'Goodbye', response.data,
                       msg='Users cannot logout.')
+
+    def test_display_logged_in_username(self):
+        self.register_user('cmattheson', 'cmattheson@test.com', 'testing', 'testing')
+        self.login('cmattheson', 'testing')
+        response = self.app.get('tasks', follow_redirects=True)
+        self.assertIn(b'cmattheson', response.data)
 
 if __name__ == '__main__':
     unittest.main()
