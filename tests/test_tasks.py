@@ -116,7 +116,7 @@ class TestUsers(TestTemplate):
 
         self.create_user('Fletcher', 'fletcher@realpython.com', 'python101')
         self.login('Fletcher', 'python101')
-        self.app.get('tasks/', follow_redirects=True)
+        self.app.get('tasks', follow_redirects=True)
         response = self.app.get("delete/1/", follow_redirects=True)
         self.assertNotIn(
             b'This task has been successfully deleted', response.data)
@@ -133,21 +133,49 @@ class TestUsers(TestTemplate):
         self.logout()
         self.create_admin_user()
         self.login('Superman', 'allpowerful')
-        self.app.get('tasks/', follow_redirects=True)
+        self.app.get('tasks', follow_redirects=True)
         response = self.app.get('complete/1/', follow_redirects=True)
         self.assertNotIn(b'You can only update tasks that belong to you', response.data)
 
     def test_admin_users_can_delete_all_tasks(self):
         self.create_user('cmattheson', 'cmattheson@test.com', 'testing')
         self.login('cmattheson', 'testing')
-        self.app.get('tasks/', follow_redirects=True)
+        self.app.get('tasks', follow_redirects=True)
         self.create_task()
         self.logout()
         self.create_admin_user()
         self.login('Superman', 'allpowerful')
-        self.app.get('tasks/', follow_redirects=True)
+        self.app.get('tasks', follow_redirects=True)
         response = self.app.get('delete/1/', follow_redirects=True)
         self.assertNotIn(b'You can only delete tasks that belong to you', response.data)
+
+    def test_visibility_of_links_functionality(self):
+        # Test that links you create are visibile for you
+        self.create_user('cmattheson', 'cmattheson@test.com', 'testing')
+        self.login('cmattheson', 'testing')
+        self.app.get('tasks', follow_redirects=True)
+        response = self.create_task()
+        self.assertIn(b'/complete/1/', response.data,
+                      msg = 'User cannot view modification links for their tasks.')
+        self.assertIn(b'/delete/1/', response.data,
+                      msg = 'User cannot view modification links for their tasks.')
+        # Test that links not created by you are not visible
+        self.create_user('randomuser', 'random@test.com', 'thisisntreal')
+        self.login('randomuser', 'thisisntreal')
+        response = self.app.get('tasks', follow_redirects=True)
+        self.assertNotIn(b'/complete', response.data,
+                      msg = 'User can view modification links for others\' tasks.')
+        self.assertNotIn(b'/delete', response.data,
+                      msg = 'User can view modification links for others\' tasks.')
+        # Test that admins have access to everything
+        self.create_admin_user()
+        self.login('Superman', 'allpowerful')
+        response = self.app.get('tasks', follow_redirects=True)
+        self.assertIn(b'/complete/1/', response.data,
+                      msg = 'Admin cannot view modification links for their tasks.')
+        self.assertIn(b'/delete/1/', response.data,
+                      msg = 'Admin cannot view modification links for their tasks.')
+
 
 if __name__ == '__main__':
     unittest.main()
