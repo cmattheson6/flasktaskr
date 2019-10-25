@@ -1,6 +1,6 @@
 import os
 import unittest
-from project import app, db
+from project import app, db, bcrypt
 from project._config import basedir
 from project.models import Task, User
 
@@ -60,9 +60,10 @@ class TestUsers(TestTemplate):
         response = self.register_user(
             'cmattheson', 'cmattheson@test.com', 'testing', 'testing')
         test = db.session.query(User).first()
+        print(test.name, test.email, test.password)
         self.assertTrue(test.name == 'cmattheson' \
                and test.email == 'cmattheson@test.com' \
-               and test.password == 'testing',
+               and bcrypt.check_password_hash(test.password, 'testing'),
                msg='New user information did not pass properly to database.')
 
     # After data has been received by database, the proper notifications are sent back to user.
