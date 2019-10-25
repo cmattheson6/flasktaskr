@@ -159,6 +159,7 @@ class TestUsers(TestTemplate):
                       msg = 'User cannot view modification links for their tasks.')
         self.assertIn(b'/delete/1/', response.data,
                       msg = 'User cannot view modification links for their tasks.')
+
         # Test that links not created by you are not visible
         self.create_user('randomuser', 'random@test.com', 'thisisntreal')
         self.login('randomuser', 'thisisntreal')
@@ -167,6 +168,7 @@ class TestUsers(TestTemplate):
                       msg = 'User can view modification links for others\' tasks.')
         self.assertNotIn(b'/delete', response.data,
                       msg = 'User can view modification links for others\' tasks.')
+
         # Test that admins have access to everything
         self.create_admin_user()
         self.login('Superman', 'allpowerful')
