@@ -15,6 +15,7 @@ class TestTemplate(unittest.TestCase):
     def setUp(self):
         self.app.config['TESTING'] = True
         self.app.config['WTF_CSRF_ENABLED'] = False
+        self.app.config['DEBUG'] = False
         self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, self.TEST_DB)
         self.app = app.test_client()
         self.db.create_all()
