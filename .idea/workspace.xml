@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="319011c3-925f-4529-9a0c-1a1237322134" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/project/templates/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/templates/500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/Lib/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_SQLAlchemy-2.1-py3.7.egg-info/PKG-INFO" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_SQLAlchemy-2.1-py3.7.egg-info/SOURCES.txt" afterDir="false" />
@@ -808,10 +806,7 @@
       <change beforePath="$PROJECT_DIR$/../flask_blog/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../flask_blog/templates/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../flask_blog/templates/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/../flask_blog/templates/template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/project/test.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -820,11 +815,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-268">
+            <state relative-caret-position="51">
               <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
             </state>
           </provider>
@@ -833,7 +828,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_template.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="221">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
               <folding>
                 <element signature="e#18#27#0" expanded="true" />
@@ -842,11 +837,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="194">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
               <folding>
                 <element signature="e#23#63#0" expanded="true" />
               </folding>
@@ -854,11 +849,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+            <state relative-caret-position="476">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -933,6 +937,7 @@
         <option value="$PROJECT_DIR$/tests/test_main.py" />
         <option value="$PROJECT_DIR$/tests/test_template.py" />
         <option value="$PROJECT_DIR$/project/__init__.py" />
+        <option value="$PROJECT_DIR$/procfile" />
       </list>
     </option>
   </component>
@@ -954,11 +959,6 @@
             <path>
               <item name="flasktaskr" type="b2602c69:ProjectViewProjectNode" />
               <item name="flasktaskr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flasktaskr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flasktaskr" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1049,7 +1049,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572003091564</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add custom error pages">
+      <created>1572217070561</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1572217070561</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1083,7 +1090,8 @@
     <MESSAGE value="Added testing suite and admin privileges" />
     <MESSAGE value="update the nav bar" />
     <MESSAGE value="add password hashing" />
-    <option name="LAST_COMMIT_MESSAGE" value="add password hashing" />
+    <MESSAGE value="Add custom error pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add custom error pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1267,13 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_users.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -1308,19 +1309,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_main.py">
+    <entry file="file://$PROJECT_DIR$/project/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_template.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="221">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="e#18#27#0" expanded="true" />
@@ -1328,13 +1326,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="194">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="e#23#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
