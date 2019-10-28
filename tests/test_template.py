@@ -16,8 +16,12 @@ class TestTemplate(unittest.TestCase):
         self.app.config['TESTING'] = True
         self.app.config['WTF_CSRF_ENABLED'] = False
         self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, self.TEST_DB)
+        self.app.config['DEBUG'] = False
         self.app = app.test_client()
         self.db.create_all()
+
+        self.assertEquals(app.config['DEBUG'], False,
+                          msg='App cannot run in production with debug mode.')
 
 
     def tearDown(self):
@@ -54,7 +58,7 @@ class TestTemplate(unittest.TestCase):
 
 
     def create_task(self):
-        return self.app.post('add', data=dict(
+        return self.app.post('add/', data=dict(
             name='Go to the bank',
             due_date='10/08/2019',
             priority='1',
