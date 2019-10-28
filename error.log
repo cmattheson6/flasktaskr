@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
  404 error at {}: {}
  404 error at {}: {}
  404 error at {}: {}
@@ -9,3 +10,11 @@
  404 error at {}: {}
  404 error at {}: {}
  404 error at {}: {}
+=======
+404 error at 28-10-2019 07:45:18: http://localhost/this/does/not/exist 
+404 error at 28-10-2019 07:45:21: http://localhost/tasks/ 
+404 error at 28-10-2019 07:45:28: http://localhost/testing 
+404 error at 28-10-2019 07:45:29: http://localhost/tasks/ 
+404 error at 28-10-2019 07:45:30: http://localhost/tasks/ 
+404 error at 28-10-2019 07:45:31: http://localhost/tasks/ 
+>>>>>>> fix_master_error

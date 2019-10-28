@@ -5,7 +5,7 @@ from project.models import Task, User
 # create the database and the db table
 db.create_all()
 # insert data
-# db.session.add(
+# db.session.delete(
 # User("admin", "ad@min.com", "admin", "admin")
 # )
 # db.session.add(
