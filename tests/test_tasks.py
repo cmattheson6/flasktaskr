@@ -8,7 +8,7 @@ from tests.test_template import TestTemplate
 
 TEST_DB = 'test.db'
 
-class TestTasks(TestTemplate):
+class TestUsers(TestTemplate):
     def mock_test(self):
         pass
 
