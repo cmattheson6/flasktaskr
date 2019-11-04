@@ -13,7 +13,7 @@ with Connection('localhost') as conn:
     def commit(c):
         message = input('Enter a git commit message: ')
         print(type(message))
-        c.run(f'git add . && git commit -m "{message}"')#.format(message))
+        c.run(f'git add . && git commit -m "{message}"')
 
     @task
     def push(c):
