@@ -73,3 +73,15 @@
 404 error at 03-11-2019 22:44:07: http://localhost/tasks/ 
 404 error at 03-11-2019 22:44:08: http://localhost/tasks/ 
 404 error at 03-11-2019 22:44:10: http://localhost/tasks/ 
+404 error at 05-11-2019 07:51:30: http://localhost/this/does/not/exist 
+404 error at 05-11-2019 07:51:32: http://localhost/tasks/ 
+404 error at 05-11-2019 07:51:38: http://localhost/testing 
+404 error at 05-11-2019 07:51:39: http://localhost/tasks/ 
+404 error at 05-11-2019 07:51:40: http://localhost/tasks/ 
+404 error at 05-11-2019 07:51:41: http://localhost/tasks/ 
+404 error at 05-11-2019 07:56:19: http://localhost/this/does/not/exist 
+404 error at 05-11-2019 07:56:22: http://localhost/tasks/ 
+404 error at 05-11-2019 07:56:28: http://localhost/testing 
+404 error at 05-11-2019 07:56:30: http://localhost/tasks/ 
+404 error at 05-11-2019 07:56:31: http://localhost/tasks/ 
+404 error at 05-11-2019 07:56:32: http://localhost/tasks/ 
