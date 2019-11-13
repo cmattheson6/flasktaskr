@@ -1,22 +1,30 @@
 from flask import Flask, jsonify
 from functools import wraps
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse
+from flask_restful.inputs import date as inputs_date
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import datetime
+
+from project import db
 from project.models import Task
 
 app = Flask(__name__)
 api = Api(app)
 bcrypt = Bcrypt(app)
-db = SQLAlchemy(app)
 
+parser = reqparse.RequestParser()
+parser.add_argument('name', type=str)
+parser.add_argument('due_date', type=inputs_date)
+parser.add_argument('priority', type=int)
+parser.add_argument('posted_date', type=inputs_date)
+parser.add_argument('status', type=int)
 
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
-
+@api.resource('/tasks')
 class AllTasks(Resource):
     def get(self):
         results = db.session.query(Task).limit(10).offset(0).all()
@@ -24,34 +32,82 @@ class AllTasks(Resource):
         for result in results:
             data = {
                 'task_id': result.task_id,
-                'task name': result.name,
-                'due date': str(result.due_date),
+                'task_name': result.name,
+                'due_date': str(result.due_date),
                 'priority': result.priority,
-                'posted date': str(result.posted_date),
+                'posted_date': str(result.posted_date),
                 'status': result.status,
-                'user id': result.user_id
+                'user_id': result.user_id
             }
             json_results.append(data)
         return jsonify(items=json_results)
 
 
+@api.resource('/tasks/add')
+class AddTasks(Resource):
+
+    def post(self):
+        args = parser.parse_args()
+        print(args['name'])
+        print(args['priority'])
+        print(args['due_date'])
+
+        new_task = Task(
+            args['name'],
+            args['due_date'],
+            args['priority'],
+            datetime.datetime.utcnow(),
+            1,
+            1)
+        db.session.add(new_task)
+        db.session.commit()
+        name = args['name']
+        data = {
+            'msg': f'Your task \'{name}\' has been posted as task 2.'
+        }
+
+        return jsonify(data)
+
+# @api.add_resource('/task')
 class TaskItem(Resource):
     def get(self, task_id):
-        pass
+        result = db.session.query(Task).filter_by(task_id=task_id).first()
+        data = {
+            'task_id': result.task_id,
+            'name': result.name,
+            'due_date': str(result.due_date),
+            'priority': result.priority,
+            'posted_date': str(result.posted_date),
+            'status': result.status,
+            'user_id': result.user_id
+        }
 
-    def post(self, task_id):
-        pass
+        return jsonify(data)
 
     def put(self, task_id):
-        pass
+        args = parser.parse_args()
+        print(args)
+        args = {k: v for k, v in args.items() if v is not None}
+        task = db.session.query(Task).filter_by(task_id=task_id)
+        task.update(args)
+        db.session.commit()
+
+        data = {
+            'msg': f'Your task has been updated.'
+        }
+
+        return jsonify(data)
 
     def delete(self, task_id):
-        pass
+        db.session.query(Task).filter_by(task_id=task_id).delete()
+        db.session.commit()
+        data = {
+            'msg': f'Your task number {task_id} has been deleted.'
+        }
 
+        return jsonify(data)
 
-
-# api.add_resource(Task, '/tasks/<int:task_id')
-api.add_resource(AllTasks, '/tasks')
+api.add_resource(TaskItem, '/tasks/<int:task_id>')
 
 #
 # def login_required(test):
@@ -173,3 +229,6 @@ api.add_resource(AllTasks, '/tasks')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+def fake():
+    print('This is totally not a correct function')
