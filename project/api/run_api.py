@@ -232,3 +232,5 @@ if __name__ == '__main__':
 
 def fake():
     print('This is totally not a correct function')
+    x = 'Making a change to test Travis CI'
+    print(x)
